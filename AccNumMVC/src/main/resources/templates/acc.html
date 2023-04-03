@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<a th:href="@{/sampleacc}">Generated</a>
+
+<div  th:object="${lastlabId}">
+    <input type="text" th:field="${lastlabId.value}" >
+</div>
+
+<form th:action="@{/savesampleacc}"  method="POST" th:object="${lastlabId}">
+<!--    <input type="text" th:field="*{patient.name}" placeholder="name">-->
+    <input th:type="name" class="form-control" name="name" placeholder="name">
+    <input type="text" th:field="${lastlabId.value}" >
+    <button type=submit>Save Employee</button>
+</form>
+<!--<table>-->
+<!--    <tr th:each="employee : ${lastlabId}">-->
+<!--        <td th:text="${employee.value}">-->
+<!--            <input type="text" th:field="${employee.value}" id="">-->
+<!--        </td>-->
+<!--    </tr>-->
+<!--</table>-->
+<!--<table th:object="${lastlabId}">-->
+<!--    <span th:field="*{value}"></span>-->
+<!--    <td type="text" th:field="*{value}"></td>-->
+<!--</table>-->
+<!--<form th:action="@{/sampleacc}" th:object="${labId}"-->
+<!--      method="POST">-->
+<!--    <input type="text" th:field="*{labId}" placeholder="FirstName">-->
+
+<!--    <button type=submit>Save Employee</button>-->
+<!--</form>-->
+</body>
+</html>
