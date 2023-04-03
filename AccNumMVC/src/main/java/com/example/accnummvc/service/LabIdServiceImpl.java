@@ -44,7 +44,55 @@ public class LabIdServiceImpl implements LabIdService{
         return acc;
     }
 
+    public String acc2(LabId labId){
 
+
+//        labId.setValue(labIdRepository.findAllUsers());
+        String a= labIdRepository.findAllUsers();
+        String[] regx=a.split("-");
+//        System.out.println(Integer.parseInt(regx[1])+1);
+        LocalDate localDate=LocalDate.now();
+        DateTimeFormatter localDate1 = DateTimeFormatter.ofPattern("yyyyMMdd");
+
+        String dts= localDate.format(localDate1);
+        String ss= regx[0];
+        int num=Integer.parseInt(regx[1]);
+
+
+        if(dts.equals(ss)){
+            num=num+1;
+            String acc=dts+"-"+ num;
+//            labId.setValue(dts+"-"+ num);
+            System.out.println("adsdsd");
+            return  acc;
+
+//            System.out.println(labId.getValue());
+        }
+        else{
+            String acc=dts+"-"+ a;
+          return  acc;
+        }
+
+//        StringBuffer bb= new StringBuffer(Arrays.toString(regx));
+//        System.out.println(bb);
+//        System.out.println(a);
+
+//        return labIdRepository.findAllUsers();
+    }
+
+//    @Override
+//    public LabId savealls(LabId labId) {
+//        labId.setValue(accnum(labId));
+//        return labIdRepository.save(labId);
+//    }
+
+//    @Override
+//    public String getAllacc() {
+////        LabId labId=new LabId();
+////        acc2(labId);
+//        return labIdRepository.findAllUsers();
+//
+//    }
 
     @Override
     public void saveAcc(LabId labId) {
